@@ -20,9 +20,20 @@ const cartReducer = (state, action) => {
       return [...state, { ...action.payload, quantity: 1 }];
     }
     
-    case 'REMOVE_FROM_CART':
+    case 'REMOVE_FROM_CART': {
+      const existingItem = state.find(item => item.id === action.payload.id);
+      if (!existingItem) return state;
+
+      if (existingItem.quantity > 1) {
+        return state.map(item =>
+          item.id === action.payload.id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        );
+      }
       return state.filter(item => item.id !== action.payload.id);
-    
+    }   
+
     case 'UPDATE_QUANTITY':
       if (action.payload.quantity <= 0) {
         return state.filter(item => item.id !== action.payload.id);
@@ -47,7 +58,6 @@ const cartReducer = (state, action) => {
 export function CartProvider({ children }) {
   const [cart, dispatch] = useReducer(cartReducer, []);
 
-  // Load cart from localStorage on mount
   useEffect(() => {
     try {
       const savedCart = localStorage.getItem('cart');
@@ -59,7 +69,6 @@ export function CartProvider({ children }) {
     }
   }, []);
 
-  // Save cart to localStorage whenever it changes
   useEffect(() => {
     try {
       localStorage.setItem('cart', JSON.stringify(cart));
@@ -81,13 +90,13 @@ export function CartProvider({ children }) {
   };
 
   const removeFromCart = (productId) => {
-    dispatch({ type: 'REMOVE_FROM_CART', payload: { id: productId } });
+    dispatch({ type: 'REMOVE_FROM_CART', payload: { id: String(productId) } });
   };
 
   const updateQuantity = (productId, quantity) => {
     dispatch({
       type: 'UPDATE_QUANTITY',
-      payload: { id: productId, quantity: parseInt(quantity) }
+      payload: { id: String(productId), quantity: parseInt(quantity) }
     });
   };
 
@@ -98,6 +107,9 @@ export function CartProvider({ children }) {
   const getCartTotal = () => {
     return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
   };
+
+  const isInCart = (productId) => cart.find(item => item.id === productId);
+
 
   const getCartCount = () => {
     return cart.reduce((total, item) => total + item.quantity, 0);
@@ -110,6 +122,7 @@ export function CartProvider({ children }) {
     updateQuantity,
     clearCart,
     getCartTotal,
+    isInCart,
     getCartCount
   };
 

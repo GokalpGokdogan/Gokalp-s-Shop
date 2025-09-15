@@ -2,8 +2,9 @@ import { api } from '@/lib/api';
 import { notFound } from 'next/navigation';
 import ProductActions from './ProductActions';
 
-export default async function ProductPage({ params }) {
+export default async function ProductPage({ params: paramsPromise }) {
   try {
+    const params = await paramsPromise;
     const { data: product } = await api.get(`/products/${params.id}`);
     
     if (!product) {

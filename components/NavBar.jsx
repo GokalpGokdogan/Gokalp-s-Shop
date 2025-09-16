@@ -23,7 +23,9 @@ export default function Navbar() {
           <Link href="/wishlist" className="text-gray-700 hover:text-[#06b6b6] font-medium">
             Wishlist
           </Link>  
-          
+          <Link href="/profile" className="text-gray-700 hover:text-[#06b6b6] font-medium">
+            Profile
+          </Link>  
           <Link href="/cart" className="relative text-gray-700 hover:text-[#06b6b6] font-medium">
             Cart
           </Link>

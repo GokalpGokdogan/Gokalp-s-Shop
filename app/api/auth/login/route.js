@@ -15,7 +15,7 @@ export async function POST(req) {
       return NextResponse.json({ message: 'Invalid credentials' }, { status: 401 });
     }
 
-    const res = NextResponse.json({ id: user.id, email: user.email }, { status: 200 });
+    const res = NextResponse.json({ id: user.id, email: user.email, name: user.name }, { status: 200 });
     res.cookies.set('session', String(user.id), {
       httpOnly: true,
       sameSite: 'lax',

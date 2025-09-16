@@ -3,7 +3,7 @@ import { api } from '@/lib/api';
 
 export async function POST(req) {
   try {
-    const { email, password } = await req.json();
+    const { email, password, name } = await req.json();
     if (!email || !password) {
       return NextResponse.json({ message: 'Email and password required' }, { status: 400 });
     }
@@ -13,9 +13,9 @@ export async function POST(req) {
       return NextResponse.json({ message: 'Email already registered' }, { status: 409 });
     }
 
-    const { data: created } = await api.post('/users', { email, password });
+    const { data: created } = await api.post('/users', { email, password, name });
 
-    const res = NextResponse.json({ id: created.id, email: created.email }, { status: 201 });
+    const res = NextResponse.json({ id: created.id, email: created.email, name: created.name }, { status: 201 });
     res.cookies.set('session', String(created.id), {
       httpOnly: true,
       sameSite: 'lax',

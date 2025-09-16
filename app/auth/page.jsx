@@ -2,14 +2,16 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 
 export default function AuthPage() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
+	const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
+	const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,10 +23,12 @@ export default function AuthPage() {
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password, name })
       });
       
       if (response.ok) {
+				const data = await response.json();
+				login(data);
         router.push('/');
       } else {
         alert('Login failed');
@@ -35,7 +39,6 @@ export default function AuthPage() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
-        {/* Header */}
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-[#06b6b6] rounded-full flex items-center justify-center mx-auto mb-4">
             <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -46,14 +49,12 @@ export default function AuthPage() {
           <p className="text-gray-600 mt-2">Sign in to your account or create a new one</p>
         </div>
 
-        {/* Form Card */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
           <div className="mb-6">
             <h2 className="text-xl font-bold text-center mb-2 text-gray-700">Get Started</h2>
             <p className="text-gray-600 text-center text-sm">Choose your preferred method to continue</p>
           </div>
 
-          {/* Toggle Buttons */}
           <div className="flex rounded-lg bg-gray-100 p-1 mb-6">
             <button
               onClick={() => setIsSignUp(false)}
@@ -78,7 +79,6 @@ export default function AuthPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4 text-gray-700">
-            {/* Email */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address
@@ -97,8 +97,22 @@ export default function AuthPage() {
                 />
               </div>
             </div>
-
-            {/* Password */}
+						{isSignUp && (
+						<div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Name
+              </label>
+              <div className="relative">
+                <input
+                  type="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter your name"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#06b6b6] focus:ring-1 focus:ring-[#06b6b6]"
+                  required
+                />
+              </div>
+            </div>)}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Password
@@ -127,23 +141,6 @@ export default function AuthPage() {
               </div>
             </div>
 
-            {/* Remember Me & Forgot Password */}
-            {/* <div className="flex items-center justify-between">
-              <label className="flex items-center">
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
-                  className="w-4 h-4 text-[#06b6b6] border-gray-300 rounded focus:ring-[#06b6b6]"
-                />
-                <span className="ml-2 text-sm text-gray-600">Remember me</span>
-              </label>
-              <button type="button" className="text-sm text-[#06b6b6] hover:underline">
-                Forgot password?
-              </button>
-            </div> */}
-
-            {/* Submit Button */}
             <button
               type="submit"
               className="w-full bg-[#06b6b6] hover:bg-[#059999] text-white py-3 px-4 rounded-lg font-semibold transition"

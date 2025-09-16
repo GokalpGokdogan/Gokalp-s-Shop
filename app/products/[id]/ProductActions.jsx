@@ -3,23 +3,21 @@
 
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
-import { useState } from 'react';
 
 export default function ProductActions({ product }) {
-  const { addToCart, removeFromCart } = useCart();
+  const { addToCart, removeFromCart, isInCart, updateQuantity } = useCart();
   const {addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
-  const [added, setAdded] = useState(false);
   
   const inWishlist = isInWishlist(product.id);
+  const inCart = isInCart(product.id)
 
   const handleAddToCart = () => {
-    if(!added){
+    if(!inCart){
       addToCart(product);
     }
     else{
-      removeFromCart(product);
+      removeFromCart(product.id);
     } 
-    setAdded(!added);
 
   };
 
@@ -36,12 +34,12 @@ export default function ProductActions({ product }) {
       <button
         onClick={handleAddToCart}
         className={`w-full py-3 px-6 rounded-lg font-semibold transition ${
-          added 
+          inCart 
             ? 'bg-green-500 text-white' 
             : 'bg-[#06b6b6] hover:bg-[#059999] text-white'
         }`}
       >
-        {added ? '✓ Added to Cart!' : 'Add to Cart'}
+        {inCart ? '✓ Added to Cart!' : 'Add to Cart'}
       </button>
 
       <button

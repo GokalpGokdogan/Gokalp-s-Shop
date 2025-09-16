@@ -1,5 +1,6 @@
 import ShopItem from '@/components/ShopItem';
 import { api } from '@/lib/api';
+import Link from 'next/link';
 
 export const metadata = { title: 'Shop - Home' };
 
@@ -16,6 +17,9 @@ export default async function HomePage() {
         <p className="mt-1 text-gray-500">
           Browse our latest items below. 
         </p>
+        <Link href="/auth" className="inline-block mt-3 text-[#06b6b6] hover:underline font-medium">
+          Sign in to your account →
+        </Link>
       </header>
 
       <section>
@@ -23,7 +27,7 @@ export default async function HomePage() {
           Suggested for you
         </h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-          {products?.slice(0,4).map((p) => <ShopItem key={p.id} product={p} />)}
+          {products?.slice(0,8).map((p) => <ShopItem key={p.id} product={p} />)}
         </div>
       </section>
     </section>

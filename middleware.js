@@ -1,4 +1,3 @@
-// middleware.js (place this in your root directory)
 import { NextResponse } from 'next/server';
 
 export function middleware(request) {

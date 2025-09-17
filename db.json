@@ -1,166 +1,279 @@
 {
-    "products": [
+  "products": [
+    {
+      "id": "1",
+      "title": "Classic Tee",
+      "price": 19.99,
+      "description": "100% cotton, unisex fit",
+      "category": "clothing",
+      "image": "https://picsum.photos/id/1059/800/600"
+    },
+    {
+      "id": "2",
+      "title": "Ceramic Mug",
+      "price": 12.5,
+      "description": "Dishwasher safe, 350ml",
+      "category": "home",
+      "image": "https://picsum.photos/id/1060/800/600"
+    },
+    {
+      "id": "3",
+      "title": "Cotton Cap",
+      "price": 22,
+      "description": "Adjustable strap, breathable cotton",
+      "category": "clothing",
+      "image": "https://picsum.photos/id/237/800/600"
+    },
+    {
+      "id": "4",
+      "title": "Hoodie",
+      "price": 39.9,
+      "description": "Cozy fleece-lined hoodie for chilly days",
+      "category": "clothing",
+      "image": "https://picsum.photos/id/1011/800/600"
+    },
+    {
+      "id": "5",
+      "title": "Notebook",
+      "price": 9,
+      "description": "A5 dotted notebook for notes and sketches",
+      "category": "stationery",
+      "image": "https://picsum.photos/id/102/800/600"
+    },
+    {
+      "id": "6",
+      "title": "Water Bottle",
+      "price": 25,
+      "description": "Insulated stainless steel bottle, 500ml",
+      "category": "home",
+      "image": "https://picsum.photos/id/1084/800/600"
+    },
+    {
+      "id": "7",
+      "title": "Socks (2-pack)",
+      "price": 11,
+      "description": "Comfy crew socks, breathable cotton blend",
+      "category": "clothing",
+      "image": "https://picsum.photos/id/1080/800/600"
+    },
+    {
+      "id": "8",
+      "title": "Sticker Pack",
+      "price": 6,
+      "description": "Set of 10 glossy vinyl stickers",
+      "category": "stationery",
+      "image": "https://picsum.photos/id/983/800/600"
+    },
+    {
+      "id": "9",
+      "title": "Tote Bag",
+      "price": 15,
+      "description": "Reusable canvas tote bag",
+      "category": "accessories",
+      "image": "https://picsum.photos/id/821/800/600"
+    },
+    {
+      "id": "10",
+      "title": "Beanie",
+      "price": 16,
+      "description": "Warm rib-knit beanie, one size fits all",
+      "category": "clothing",
+      "image": "https://picsum.photos/id/1003/800/600"
+    },
+    {
+      "id": "11",
+      "title": "Phone Case",
+      "price": 18,
+      "description": "Slim matte phone case, grippy and protective",
+      "category": "electronics",
+      "image": "https://picsum.photos/id/1004/800/600"
+    },
+    {
+      "id": "12",
+      "title": "Poster",
+      "price": 20,
+      "description": "A2 size art print on premium matte paper",
+      "category": "decor",
+      "image": "https://picsum.photos/id/1005/800/600"
+    },
+    {
+      "id": "13",
+      "title": "Desk Mat",
+      "price": 26,
+      "description": "Large desk mat (900×400mm) for comfort",
+      "category": "office",
+      "image": "https://picsum.photos/id/1006/800/600"
+    },
+    {
+      "id": "14",
+      "title": "Keychain",
+      "price": 7,
+      "description": "Cute enamel keychain accessory",
+      "category": "accessories",
+      "image": "https://picsum.photos/id/1008/800/600"
+    },
+    {
+      "id": "15",
+      "title": "Pen Set",
+      "price": 9.5,
+      "description": "Smooth gel pens, 0.5mm, pack of 3",
+      "category": "stationery",
+      "image": "https://picsum.photos/id/1010/800/600"
+    },
+    {
+      "id": "16",
+      "title": "Laptop Sleeve",
+      "price": 28,
+      "description": "Protective neoprene sleeve, fits 13–14\" laptops",
+      "category": "electronics",
+      "image": "https://picsum.photos/id/1012/800/600"
+    },
+    {
+      "id": "17",
+      "title": "Backpack",
+      "price": 52,
+      "description": "Durable 20L water-resistant backpack",
+      "category": "accessories",
+      "image": "https://picsum.photos/id/1015/800/600"
+    },
+    {
+      "id": "18",
+      "title": "Wireless Mouse",
+      "price": 32,
+      "description": "Ergonomic wireless mouse with silent clicks",
+      "category": "electronics",
+      "image": "https://picsum.photos/id/1016/800/600"
+    },
+    {
+      "id": "19",
+      "title": "Desk Lamp",
+      "price": 37,
+      "description": "LED desk lamp with dimmable warm/cool light",
+      "category": "office",
+      "image": "https://picsum.photos/id/1018/800/600"
+    },
+    {
+      "id": "20",
+      "title": "Throw Blanket",
+      "price": 34,
+      "description": "Soft cotton knit throw blanket",
+      "category": "home",
+      "image": "https://picsum.photos/id/1025/800/600"
+    }
+  ],
+  "users": [
+    {
+      "id": "1221",
+      "email": "aa@a",
+      "password": "aa"
+    },
+    {
+      "id": "41df",
+      "email": "a@a",
+      "password": "a",
+      "name": "a"
+    },
+    {
+      "id": "ce6e",
+      "email": "q@q",
+      "password": "q",
+      "name": "qq"
+    }
+  ],
+  "orders": [
+    {
+      "id": "65eb",
+      "userId": "1221",
+      "date": "2025-09-16T15:22:45.519Z",
+      "items": [
         {
-            "id": 1,
-            "title": "Classic Tee",
-            "price": 19.99,
-            "description": "100% cotton, unisex fit",
-            "category": "clothing",
-            "image": "https://picsum.photos/id/1059/800/600"
-        },
-        {
-            "id": 2,
-            "title": "Ceramic Mug",
-            "price": 12.5,
-            "description": "Dishwasher safe, 350ml",
-            "category": "home",
-            "image": "https://picsum.photos/id/1060/800/600"
-        },
-        {
-            "id": 3,
-            "title": "Cotton Cap",
-            "price": 22.0,
-            "description": "Adjustable strap, breathable cotton",
-            "category": "clothing",
-            "image": "https://picsum.photos/id/237/800/600"
-        },
-        {
-            "id": 4,
-            "title": "Hoodie",
-            "price": 39.9,
-            "description": "Cozy fleece-lined hoodie for chilly days",
-            "category": "clothing",
-            "image": "https://picsum.photos/id/1011/800/600"
-        },
-        {
-            "id": 5,
-            "title": "Notebook",
-            "price": 9.0,
-            "description": "A5 dotted notebook for notes and sketches",
-            "category": "stationery",
-            "image": "https://picsum.photos/id/102/800/600"
-        },
-        {
-            "id": 6,
-            "title": "Water Bottle",
-            "price": 25.0,
-            "description": "Insulated stainless steel bottle, 500ml",
-            "category": "home",
-            "image": "https://picsum.photos/id/1084/800/600"
-        },
-        {
-            "id": 7,
-            "title": "Socks (2-pack)",
-            "price": 11.0,
-            "description": "Comfy crew socks, breathable cotton blend",
-            "category": "clothing",
-            "image": "https://picsum.photos/id/1080/800/600"
-        },
-        {
-            "id": 8,
-            "title": "Sticker Pack",
-            "price": 6.0,
-            "description": "Set of 10 glossy vinyl stickers",
-            "category": "stationery",
-            "image": "https://picsum.photos/id/983/800/600"
-        },
-        {
-            "id": 9,
-            "title": "Tote Bag",
-            "price": 15.0,
-            "description": "Reusable canvas tote bag",
-            "category": "accessories",
-            "image": "https://picsum.photos/id/821/800/600"
-        },
-        {
-            "id": 10,
-            "title": "Beanie",
-            "price": 16.0,
-            "description": "Warm rib-knit beanie, one size fits all",
-            "category": "clothing",
-            "image": "https://picsum.photos/id/1003/800/600"
-        },
-        {
-            "id": 11,
-            "title": "Phone Case",
-            "price": 18.0,
-            "description": "Slim matte phone case, grippy and protective",
-            "category": "electronics",
-            "image": "https://picsum.photos/id/1004/800/600"
-        },
-        {
-            "id": 12,
-            "title": "Poster",
-            "price": 20.0,
-            "description": "A2 size art print on premium matte paper",
-            "category": "decor",
-            "image": "https://picsum.photos/id/1005/800/600"
-        },
-        {
-            "id": 13,
-            "title": "Desk Mat",
-            "price": 26.0,
-            "description": "Large desk mat (900×400mm) for comfort",
-            "category": "office",
-            "image": "https://picsum.photos/id/1006/800/600"
-        },
-        {
-            "id": 14,
-            "title": "Keychain",
-            "price": 7.0,
-            "description": "Cute enamel keychain accessory",
-            "category": "accessories",
-            "image": "https://picsum.photos/id/1008/800/600"
-        },
-        {
-            "id": 15,
-            "title": "Pen Set",
-            "price": 9.5,
-            "description": "Smooth gel pens, 0.5mm, pack of 3",
-            "category": "stationery",
-            "image": "https://picsum.photos/id/1010/800/600"
-        },
-        {
-            "id": 16,
-            "title": "Laptop Sleeve",
-            "price": 28.0,
-            "description": "Protective neoprene sleeve, fits 13–14\" laptops",
-            "category": "electronics",
-            "image": "https://picsum.photos/id/1012/800/600"
-        },
-        {
-            "id": 17,
-            "title": "Backpack",
-            "price": 52.0,
-            "description": "Durable 20L water-resistant backpack",
-            "category": "accessories",
-            "image": "https://picsum.photos/id/1015/800/600"
-        },
-        {
-            "id": 18,
-            "title": "Wireless Mouse",
-            "price": 32.0,
-            "description": "Ergonomic wireless mouse with silent clicks",
-            "category": "electronics",
-            "image": "https://picsum.photos/id/1016/800/600"
-        },
-        {
-            "id": 19,
-            "title": "Desk Lamp",
-            "price": 37.0,
-            "description": "LED desk lamp with dimmable warm/cool light",
-            "category": "office",
-            "image": "https://picsum.photos/id/1018/800/600"
-        },
-        {
-            "id": 20,
-            "title": "Throw Blanket",
-            "price": 34.0,
-            "description": "Soft cotton knit throw blanket",
-            "category": "home",
-            "image": "https://picsum.photos/id/1025/800/600"
+          "id": "3",
+          "title": "Cotton Cap",
+          "price": 22,
+          "quantity": 1,
+          "image": "https://picsum.photos/id/237/800/600"
         }
-    ],
-    "users": [],
-    "orders": []
+      ],
+      "total": 22,
+      "status": "created"
+    },
+    {
+      "id": "42b9",
+      "userId": "41df",
+      "date": "2025-09-17T10:56:08.337Z",
+      "items": [
+        {
+          "id": "7",
+          "title": "Socks (2-pack)",
+          "price": 11,
+          "quantity": 1,
+          "image": "https://picsum.photos/id/1080/800/600"
+        },
+        {
+          "id": "8",
+          "title": "Sticker Pack",
+          "price": 6,
+          "quantity": 3,
+          "image": "https://picsum.photos/id/983/800/600"
+        },
+        {
+          "id": "10",
+          "title": "Beanie",
+          "price": 16,
+          "quantity": 8,
+          "image": "https://picsum.photos/id/1003/800/600"
+        }
+      ],
+      "total": 157,
+      "status": "created"
+    },
+    {
+      "id": "45c6",
+      "userId": "41df",
+      "date": "2025-09-17T15:53:35.746Z",
+      "items": [
+        {
+          "id": "7",
+          "title": "Socks (2-pack)",
+          "price": 11,
+          "quantity": 1,
+          "image": "https://picsum.photos/id/1080/800/600"
+        }
+      ],
+      "total": 11,
+      "status": "created"
+    },
+    {
+      "id": "744f",
+      "userId": "ce6e",
+      "date": "2025-09-17T17:22:14.621Z",
+      "items": [
+        {
+          "id": "2",
+          "title": "Ceramic Mug",
+          "price": 12.5,
+          "quantity": 2,
+          "image": "https://picsum.photos/id/1060/800/600"
+        }
+      ],
+      "total": 25,
+      "status": "created"
+    },
+    {
+      "id": "bcc5",
+      "userId": "ce6e",
+      "date": "2025-09-17T17:22:25.957Z",
+      "items": [
+        {
+          "id": "14",
+          "title": "Keychain",
+          "price": 7,
+          "quantity": 1,
+          "image": "https://picsum.photos/id/1008/800/600"
+        }
+      ],
+      "total": 7,
+      "status": "created"
+    }
+  ]
 }

@@ -5,12 +5,12 @@ export default function NotFound() {
       <p className="text-gray-600 mb-6">
         Sorry, the page you are looking for doesn't exist or has been removed.
       </p>
-      <a
+      <Link
         href="/"
         className="bg-[#06b6b6] hover:bg-[#059999] text-white px-5 py-3 rounded-lg font-semibold transition"
       >
         Go Home
-      </a>
+      </Link>
     </div>
   );
 }

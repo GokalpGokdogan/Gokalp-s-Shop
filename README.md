@@ -3,6 +3,9 @@
 A simple e‑commerce demo built with **Next.js 15**, **React**, **Tailwind CSS**, and a local **JSON Server**
 
 ---
+> Vercel Link
+>
+> - **https://gokalp-s-shop.vercel.app/**
 
 > Default ports
 >

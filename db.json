@@ -159,6 +159,22 @@
       "description": "Soft cotton knit throw blanket",
       "category": "home",
       "image": "https://picsum.photos/id/1025/800/600"
+    },
+    {
+      "id": "21",
+      "title": "Blanket",
+      "price": 30,
+      "description": "Soft cotton knit throw blanket",
+      "category": "home",
+      "image": "https://picsum.photos/id/1032/800/600"
+    },
+    {
+      "id": "22",
+      "title": "Thor Figure",
+      "price": 34,
+      "description": "Detailed action figure of Thor",
+      "category": "Figures",
+      "image": "https://picsum.photos/id/1039/800/600"
     }
   ],
   "users": [

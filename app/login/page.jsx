@@ -1,7 +1,8 @@
 'use client';
 
+// This was originally in auth dir but I changed it for requirements file
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 
 export default function AuthPage() {
@@ -12,6 +13,9 @@ export default function AuthPage() {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 	const { login } = useAuth();
+  const searchParams = useSearchParams();
+  
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,6 +33,11 @@ export default function AuthPage() {
       if (response.ok) {
 				const data = await response.json();
 				login(data);
+        const checkout = searchParams.get('checkout');
+        if(checkout){
+          router.push('/cart');
+          return;
+        }
         router.push('/');
       } else {
         alert('Login failed');

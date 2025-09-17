@@ -14,7 +14,7 @@ export default function HomeHeader() {
 
       {!isAuthenticated && (
         <Link
-          href="/auth"
+          href="/login"
           className="inline-block mt-3 text-[#06b6b6] hover:underline font-medium"
         >
           Sign in to your account →

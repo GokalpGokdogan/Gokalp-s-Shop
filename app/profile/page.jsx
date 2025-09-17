@@ -2,31 +2,28 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { api } from '@/lib/api';
+import { notFound, useRouter } from 'next/navigation';
 
 const ProfilePage = () => {
 
   const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
     const fetchUserOrders = async () => {
       if (!isAuthenticated || !user?.id) {
-        setLoading(false);
         return;
       }
-      console.log('Fetching orders for user ID:', user);
+    //   console.log('Fetching orders for user ID:', user);
       try {
         const { data } = await api.get('/orders', {
           params: { userId: user.id }
         });
         setOrders(data || []);
       } catch (error) {
-        console.error('Error fetching orders:', error);
+        // console.error('Error fetching orders:', error);
         setOrders([]);
-      } finally {
-        setLoading(false);
-      }
+      } 
     };
 
     fetchUserOrders();
@@ -45,7 +42,7 @@ const ProfilePage = () => {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Access Denied</h1>
           <p className="text-gray-600 mb-4">Please log in to view your profile.</p>
-          <a href="/auth" className="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-lg">
+          <a href="/login" className="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-lg">
             Go to Login
           </a>
         </div>
@@ -53,24 +50,22 @@ const ProfilePage = () => {
     );
   }
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-500 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading profile...</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">My Profile</h1>
-          <p className="text-gray-600">Manage your account information and view your order history</p>
-        </div>
+        <div className="flex items-start justify-between gap-4">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">My Profile</h1>
+              <p className="text-gray-600">Manage your account information and view your order history</p>
+            </div>
+            <button
+              onClick={logout}
+              className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold"
+            >
+              Log out
+            </button>
+          </div>
 
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
           <div className="p-6 border-b border-gray-200">

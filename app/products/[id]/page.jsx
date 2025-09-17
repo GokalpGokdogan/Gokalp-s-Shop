@@ -6,7 +6,6 @@ export default async function ProductPage({ params: paramsPromise }) {
   try {
     const params = await paramsPromise;
     const { data: product } = await api.get(`/products/${params.id}`);
-    
     if (!product) {
       notFound();
     }
@@ -45,7 +44,7 @@ export default async function ProductPage({ params: paramsPromise }) {
       </div>
     );
   } catch (error) {
-    console.error('Error fetching product:', error);
+    // console.error('Error fetching product:', error);
     notFound();
   }
 }

@@ -31,7 +31,6 @@ const wishlistReducer = (state, action) => {
 export function WishlistProvider({ children }) {
   const [wishlist, dispatch] = useReducer(wishlistReducer, []);
 
-  // Load wishlist from localStorage on mount
   useEffect(() => {
     try {
       const savedWishlist = localStorage.getItem('wishlist');

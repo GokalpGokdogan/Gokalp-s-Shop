@@ -1,11 +1,9 @@
 import HomeHeader from '@/components/HomeHeader';
 import ShopItem from '@/components/ShopItem';
 import { api } from '@/lib/api';
-import Link from 'next/link';
 
 export const metadata = { title: 'Shop - Home' };
 
-// Optional: force fresh fetch on each request while developing
 export const dynamic = 'force-dynamic';
 
 export default async function HomePage() {

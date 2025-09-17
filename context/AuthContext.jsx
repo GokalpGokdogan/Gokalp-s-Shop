@@ -22,8 +22,13 @@ export function AuthProvider({ children }) {
   };
 
   const logout = () => {
-    setUser(null);
-    localStorage.removeItem('user');
+    fetch('/api/auth/logout', { method: 'POST' })
+        .catch(() => {})
+        .finally(() => {
+            setUser(null);
+            localStorage.removeItem('user');
+            window.location.href = '/login';
+        });
   };
 
   const value = {

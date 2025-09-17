@@ -23,7 +23,7 @@ export default function OrderSummary() {
 
 			console.log(user, isAuthenticated)
     if (!isAuthenticated) {
-      router.push(`/auth`);
+      router.push(`/login?checkout=true`);
       return;
     }
 
@@ -46,7 +46,7 @@ export default function OrderSummary() {
 
       router.push('/profile');
     } catch (err) {
-      console.error('Checkout failed:', err);
+      // console.error('Checkout failed:', err);
       alert('Something went wrong while placing your order. Please try again.');
     } finally {
       setSubmitting(false);
